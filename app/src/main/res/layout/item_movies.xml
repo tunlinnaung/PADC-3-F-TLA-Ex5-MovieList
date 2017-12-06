@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="5dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_movie_poster"
+            android:layout_width="140dp"
+            android:layout_height="220dp"
+            android:scaleType="center"
+            android:src="@drawable/it_poster" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_favorite_black_40dp"
+                android:tint="@color/accent" />
+
+            <TextView
+                android:id="@+id/lbl_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/iv_favourite"
+                android:layout_alignLeft="@id/iv_favourite"
+                android:layout_alignRight="@id/iv_favourite"
+                android:layout_alignTop="@id/iv_favourite"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="7.4"
+                android:textColor="@color/text_whilte"
+                android:textStyle="bold|italic" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_maximize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="180dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_crop_free_black_32dp"
+            android:tint="@color/text_whilte" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/iv_movie_poster">
+
+            <TextView
+                android:id="@+id/lbl_movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/movie_title"
+                android:textColor="@color/primary_text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lbl_movie_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_title"
+                android:text="@string/movie_category"
+                android:textColor="@color/primary_text"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/lbl_movie_popularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_category"
+                android:text="Current Popularity"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_rating_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_popularity"
+                android:src="@drawable/ic_star_black_28dp"
+                android:tint="#fca311" />
+
+            <ImageView
+                android:id="@+id/iv_rating_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_popularity"
+                android:layout_toRightOf="@id/iv_rating_one"
+                android:src="@drawable/ic_star_black_28dp"
+                android:tint="#fca311" />
+
+            <ImageView
+                android:id="@+id/iv_rating_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_popularity"
+                android:layout_toRightOf="@id/iv_rating_two"
+                android:src="@drawable/ic_star_black_28dp"
+                android:tint="#fca311" />
+
+            <ImageView
+                android:id="@+id/iv_rating_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_popularity"
+                android:layout_toRightOf="@id/iv_rating_three"
+                android:src="@drawable/ic_star_black_28dp"
+                android:tint="#fca311" />
+
+            <ImageView
+                android:id="@+id/iv_rating_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_popularity"
+                android:layout_toRightOf="@id/iv_rating_four"
+                android:src="@drawable/ic_star_black_28dp"
+                android:tint="#fca311" />
+
+            <ImageView
+                android:id="@+id/iv_rating_six"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_movie_popularity"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/iv_rating_five"
+                android:src="@drawable/ic_star_black_14dp"
+                android:tint="#fca311" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_overview"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_movie_poster"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:text="Movie Overview"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/text_whilte"
+            android:textAllCaps="false"
+            />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
