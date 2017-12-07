@@ -3,16 +3,23 @@ package xyz.tunlinaung.movielist;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import xyz.tunlinaung.movielist.adapters.MoviesAdapter;
+import xyz.tunlinaung.movielist.model.Movie;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
 
     @BindView(R.id.fab) FloatingActionButton fab;
+
+    private MoviesAdapter moviesAdapter;
+
+    private List<Movie> movieList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,6 +42,44 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolbar);
+
+        inializeMovieList();
+
+        moviesAdapter = new MoviesAdapter(movieList);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false);
+
+        rvMovieList.setLayoutManager(layoutManager);
+
+        rvMovieList.setAdapter(moviesAdapter);
+
+    }
+
+    private void inializeMovieList() {
+        movieList = new ArrayList<>();
+
+        movieList.add(new Movie(R.drawable.it_poster, "It", "(Drama, Horror, Thriller)", "7.4"));
+        movieList.add(new Movie(R.drawable.blade_runner_2049, "Blade Runner 2049", "(Action, Thriller, Science Fiction, Mystery)", "7.5"));
+        movieList.add(new Movie(R.drawable.thor, "Thor: Ragnarok", "(Adventure, Fantasy, Action, Science Fiction)", "7.5"));
+
+    }
+
+    public void initHamburger() {
+//        final ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+//            @Override
+//            public void onDrawerOpened(View drawerView) {
+//                super.onDrawerOpened(drawerView);
+//            }
+//            @Override
+//            public void onDrawerClosed(View drawerView) {
+//                super.onDrawerClosed(drawerView);
+//            }
+//        };
+//        //Setting the actionbarToggle to drawer layout
+//        mDrawerLayout.addDrawerListener(actionBarDrawerToggle);
+//        //calling sync state is necessay or else your hamburger icon wont show up
+//        actionBarDrawerToggle.syncState();
     }
 
     @OnClick(R.id.fab)
@@ -55,11 +104,6 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
