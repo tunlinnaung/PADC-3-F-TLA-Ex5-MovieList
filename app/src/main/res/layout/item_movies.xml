@@ -50,10 +50,10 @@
             android:id="@+id/iv_maximize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="175dp"
             android:padding="5dp"
-            android:src="@drawable/ic_crop_free_black_45dp"
+            android:src="@drawable/ic_crop_free_black_35dp"
             android:tint="@color/text_whilte" />
 
         <RelativeLayout
