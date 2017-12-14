@@ -2,6 +2,7 @@
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_movies_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,6 +11,7 @@
     android:layout_marginTop="10dp"
     app:cardElevation="4dp">
 
+    <!-- Add default image and text -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,8 +20,11 @@
             android:id="@+id/iv_movie_poster"
             android:layout_width="160dp"
             android:layout_height="220dp"
-            android:scaleType="fitXY" />
+            android:background="#ff0"
+            android:scaleType="fitXY"
+            tools:tint="@color/accent"/>
 
+        <!-- Change with Frame Layout -->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -30,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_favorite_black_50dp"
-                android:tint="@color/accent" />
+                tools:tint="@color/accent" />
 
             <TextView
                 android:id="@+id/lbl_rating"
@@ -43,7 +48,7 @@
                 android:layout_margin="1dp"
                 android:gravity="center"
                 android:textColor="@color/text_whilte"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
         </RelativeLayout>
 
         <ImageView
@@ -67,6 +72,7 @@
                 android:id="@+id/lbl_movie_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="{movie_title}"
                 android:textColor="@color/primary_text"
                 android:textSize="20sp" />
 
@@ -74,6 +80,7 @@
                 android:id="@+id/lbl_movie_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="{movie_category}"
                 android:layout_below="@id/lbl_movie_title"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/primary_text"

@@ -24,15 +24,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<ItemMoviesViewHolder> {
     }
 
     @Override
-    public ItemMoviesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View movieItemsView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_movies, parent, false);
-        ItemMoviesViewHolder viewHolder = new ItemMoviesViewHolder(movieItemsView);
-        return viewHolder;
+    public ItemMoviesViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        return new ItemMoviesViewHolder(
+                LayoutInflater.from(parent.getContext())
+                              .inflate(R.layout.item_movies, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(ItemMoviesViewHolder holder, int position) {
+    public void onBindViewHolder(ItemMoviesViewHolder holder, int position)
+    {
         holder.getIvMoviePoster().setImageResource(movieList.get(position).getPoster());
         holder.getLblMovieTitle().setText(movieList.get(position).getTitle());
         holder.getLblMovieCategory().setText(movieList.get(position).getCategories());
@@ -40,7 +41,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<ItemMoviesViewHolder> {
     }
 
     @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    public void onAttachedToRecyclerView(RecyclerView recyclerView)
+    {
         super.onAttachedToRecyclerView(recyclerView);
     }
 

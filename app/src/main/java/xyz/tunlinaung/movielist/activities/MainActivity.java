@@ -1,4 +1,4 @@
-package xyz.tunlinaung.movielist;
+package xyz.tunlinaung.movielist.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import xyz.tunlinaung.movielist.R;
 import xyz.tunlinaung.movielist.adapters.MoviesAdapter;
 import xyz.tunlinaung.movielist.model.Movie;
 
@@ -47,8 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
         moviesAdapter = new MoviesAdapter(movieList);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(),
-                LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(getApplicationContext(),
+                                        LinearLayoutManager.VERTICAL, false);
 
         rvMovieList.setLayoutManager(layoutManager);
 

@@ -9,4 +9,6 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="text_whilte">#FFF</color>
+    <color name="background_amber">#ffe082</color>
+    <color name="background_description">#01579b</color>
 </resources>

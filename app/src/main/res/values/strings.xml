@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">Movie Shelf</string>
     <string name="action_settings">Home</string>
-    <string name="movie_title">It</string>
-    <string name="movie_category">(Drama, Horror, Thriller)</string>
+    <string name="movie_review"><u>Reviews</u></string>
+    <string name="movie_review_user_one"><i>Tun Lin Aung wrote:</i>\nVery good movie 9.5/10.0.</string>
+    <string name="movie_review_user_two"><i>Genius wrote:</i>\nSome birds are not meant to be caged.</string>
+    <string name="movie_title">Blade Runner 2049 review – a future classic</string>
+    <string name="movie_content">Blade Runner may have shaped the future, but it’s easy to forget its past. Now universally accepted as a classic, Ridley Scott’s future-noir fantasy (from an android-hunting novel by Philip K Dick) flopped in 1982, widely dismissed as an exercise in ravishing emptiness, as eye-catchingly hollow as Rachael, the glamorous “replicant” played by Sean Young. Late-in-the-day recuts didn’t help, adding an explanatory narration and dopey happy ending following negative test screenings. Indeed, it was only when Blade Runner was reconfigured via a 1992 Director’s Cut, and later Scott’s definitive Final Cut, that its masterpiece status was assured, sitting alongside Fritz Lang’s Metropolis and Kubrick’s 2001 in the pantheon of world-building sci-fi.
+
+No such tribulations await Blade Runner 2049, which has opened to the kind of critical adoration that sorely evaded Scott’s original. Yet Arrival director Denis Villeneuve’s audacious sequel, co-written by original screenwriter Hampton Fancher, really is as good as the hype suggests, spectacular enough to win over new generations of viewers, yet deep enough to reassure diehard fans that their cherished memories haven’t been reduced to tradable synthetic implants.
+    </string>
+    <string name="movie_description">
+        Blade Runner may have shaped the future, but it’s easy to forget its past. Now universally accepted as a classic, Ridley Scott’s future-noir fantasy (from an android-hunting novel by Philip K Dick) flopped in 1982, widely dismissed as an exercise in ravishing emptiness, as eye-catchingly hollow as Rachael, the glamorous “replicant” played by Sean Young. Late-in-the-day recuts didn’t help, adding an explanatory narration and dopey happy ending following negative test screenings. Indeed, it was only when Blade Runner was reconfigured via a 1992 Director’s Cut, and later Scott’s definitive Final Cut, that its masterpiece status was assured, sitting alongside Fritz Lang’s Metropolis and Kubrick’s 2001 in the pantheon of world-building sci-fi.
+
+No such tribulations await Blade Runner 2049, which has opened to the kind of critical adoration that sorely evaded Scott’s original. Yet Arrival director Denis Villeneuve’s audacious sequel, co-written by original screenwriter Hampton Fancher, really is as good as the hype suggests, spectacular enough to win over new generations of viewers, yet deep enough to reassure diehard fans that their cherished memories haven’t been reduced to tradable synthetic implants.
+
+The action plays out 30 years after “blade runner” Rick Deckard (Harrison Ford) gave up chasing down androids and fell in love with one instead. In the interim there’s been a “blackout” – 10 days of darkness that wiped digitally stored replicant-production records, creating a blank space in humanity’s database memory. Promos for the off-world colonies still burble through the acid rain, jostling for attention amid corporation logos for Sony, Atari, Coca-Cola and Pan Am.
+    </string>
 </resources>
