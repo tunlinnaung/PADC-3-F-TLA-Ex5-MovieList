@@ -1,5 +1,6 @@
 package xyz.tunlinaung.movielist.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,9 +21,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.tunlinaung.movielist.R;
 import xyz.tunlinaung.movielist.adapters.MoviesAdapter;
+import xyz.tunlinaung.movielist.delegates.MoviesActionDelegate;
 import xyz.tunlinaung.movielist.model.Movie;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MoviesActionDelegate {
 
     @BindView(R.id.rv_movie_list) RecyclerView rvMovieList;
 
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         inializeMovieList();
 
-        moviesAdapter = new MoviesAdapter(movieList);
+        moviesAdapter = new MoviesAdapter(this, movieList);
 
         LinearLayoutManager layoutManager =
                 new LinearLayoutManager(getApplicationContext(),
@@ -108,5 +110,26 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapMovieItem() {
+
+    }
+
+    @Override
+    public void onTapFavouriteButton() {
+
+    }
+
+    @Override
+    public void onTapMovieOverviewButton() {
+        Intent intent = new Intent(getApplicationContext(), MoviesDetailsActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onTapMaximizeButton() {
+
     }
 }
