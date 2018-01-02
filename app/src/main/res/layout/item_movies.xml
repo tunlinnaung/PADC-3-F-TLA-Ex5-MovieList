@@ -35,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_favorite_black_50dp"
-                tools:tint="@color/accent" />
+                android:tint="@color/accent"
+                />
 
             <TextView
                 android:id="@+id/lbl_rating"
@@ -47,7 +48,7 @@
                 android:layout_alignTop="@id/iv_favourite"
                 android:layout_margin="1dp"
                 android:gravity="center"
-                android:textColor="@color/text_whilte"
+                android:textColor="@color/text_white"
                 android:textStyle="bold|italic"/>
         </RelativeLayout>
 
@@ -59,7 +60,7 @@
             android:layout_marginTop="175dp"
             android:padding="5dp"
             android:src="@drawable/ic_crop_free_black_35dp"
-            android:tint="@color/text_whilte" />
+            android:tint="@color/text_white" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -72,7 +73,6 @@
                 android:id="@+id/lbl_movie_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="{movie_title}"
                 android:textColor="@color/primary_text"
                 android:textSize="20sp" />
 
@@ -80,7 +80,7 @@
                 android:id="@+id/lbl_movie_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="{movie_category}"
+                android:text="(Drama, Horror)"
                 android:layout_below="@id/lbl_movie_title"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/primary_text"
@@ -124,7 +124,7 @@
             android:backgroundTint="@color/primary"
             android:text="Movie Overview"
             android:textAllCaps="false"
-            android:textColor="@color/text_whilte" />
+            android:textColor="@color/text_white" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

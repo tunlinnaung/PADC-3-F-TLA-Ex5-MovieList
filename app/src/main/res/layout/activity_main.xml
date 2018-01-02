@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="xyz.tunlinaung.movielist.activities.MainActivity">
+    tools:context="xyz.tunlinaung.movielist.activities.MainActivity"
+    android:fitsSystemWindows="true">
+    <!-- because of <item name="android:windowDrawsSystemBarBackgrounds">true</item>, status bar is white. -->
+    <!-- set fitsSystemWindows=true at coordinatorLayout-->
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

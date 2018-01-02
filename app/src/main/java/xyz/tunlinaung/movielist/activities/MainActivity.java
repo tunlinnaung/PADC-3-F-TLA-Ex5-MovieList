@@ -9,9 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +26,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.tunlinaung.movielist.R;
 import xyz.tunlinaung.movielist.adapters.MoviesAdapter;
+import xyz.tunlinaung.movielist.data.models.MoviesModel;
+import xyz.tunlinaung.movielist.data.vo.MoviesVO;
 import xyz.tunlinaung.movielist.delegates.MoviesActionDelegate;
+import xyz.tunlinaung.movielist.events.LoadedMoviesEvent;
 import xyz.tunlinaung.movielist.model.Movie;
 
 public class MainActivity extends AppCompatActivity implements MoviesActionDelegate {
+
+    public static final String TAG = "MainActivity";
 
     @BindView(R.id.rv_movie_list) RecyclerView rvMovieList;
 
@@ -34,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
 
     private MoviesAdapter moviesAdapter;
 
-    private List<Movie> movieList;
+    private List<MoviesVO> movieList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,9 +56,9 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
 
         setSupportActionBar(toolbar);
 
-        inializeMovieList();
+        //inializeMovieList();
 
-        moviesAdapter = new MoviesAdapter(this, movieList);
+        moviesAdapter = new MoviesAdapter(this);
 
         LinearLayoutManager layoutManager =
                 new LinearLayoutManager(getApplicationContext(),
@@ -58,15 +68,24 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
 
         rvMovieList.setAdapter(moviesAdapter);
 
+        MoviesModel.getInstance().loadMovies();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     private void inializeMovieList() {
         movieList = new ArrayList<>();
-
-        movieList.add(new Movie(R.drawable.it_poster, "It", "(Drama, Horror, Thriller)", "7.4"));
-        movieList.add(new Movie(R.drawable.blade_runner_2049, "Blade Runner 2049", "(Action, Thriller, Science Fiction, Mystery)", "7.5"));
-        movieList.add(new Movie(R.drawable.thor, "Thor: Ragnarok", "(Adventure, Fantasy, Action, Science Fiction)", "7.5"));
-
     }
 
     public void initHamburger() {
@@ -114,7 +133,8 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
 
     @Override
     public void onTapMovieItem() {
-
+        Intent intent = new Intent(getApplicationContext(), MoviesDetailsActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -124,12 +144,17 @@ public class MainActivity extends AppCompatActivity implements MoviesActionDeleg
 
     @Override
     public void onTapMovieOverviewButton() {
-        Intent intent = new Intent(getApplicationContext(), MoviesDetailsActivity.class);
-        startActivity(intent);
+
     }
 
     @Override
     public void onTapMaximizeButton() {
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMoviesLoaded(LoadedMoviesEvent event) {
+        Log.d(TAG, "onMoviesLoaded: " + event.getMoviesList().size());
+        moviesAdapter.setMovies(event.getMoviesList());
     }
 }

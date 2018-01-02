@@ -1,24 +1,34 @@
 package xyz.tunlinaung.movielist.data.vo;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by eidoshack on 12/20/17.
  */
 
 public class MoviesVO {
 
+    @SerializedName("vote_count")
     private int voteCount;
     private int id;
     private boolean video;
+    @SerializedName("vote_average")
     private double voteAverage;
     private String title;
     private double popularity;
+    @SerializedName("poster_path")
     private String posterPath;
+    @SerializedName("original_language")
     private String originalLanguage;
+    @SerializedName("original_title")
     private String originalTitle;
+    @SerializedName("genre_ids")
     private int[] genreIds;
+    @SerializedName("backdrop_path")
     private String backdropPath;
     private boolean adult;
     private String overview;
+    @SerializedName("release_date")
     private String releaseDate;
 
     public int getVoteCount() {
@@ -29,9 +39,7 @@ public class MoviesVO {
         return id;
     }
 
-    public boolean isVideo() {
-        return video;
-    }
+    public boolean isVideo() { return video; }
 
     public double getVoteAverage() {
         return voteAverage;

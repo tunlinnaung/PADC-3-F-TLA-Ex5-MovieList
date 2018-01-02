@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import xyz.tunlinaung.movielist.R;
+import xyz.tunlinaung.movielist.data.vo.MoviesVO;
 import xyz.tunlinaung.movielist.delegates.MoviesActionDelegate;
 import xyz.tunlinaung.movielist.model.Movie;
 import xyz.tunlinaung.movielist.viewholders.ItemMoviesViewHolder;
@@ -18,13 +20,13 @@ import xyz.tunlinaung.movielist.viewholders.ItemMoviesViewHolder;
 
 public class MoviesAdapter extends RecyclerView.Adapter<ItemMoviesViewHolder> {
 
-    private List<Movie> movieList;
+    private List<MoviesVO> movieList;
 
     private MoviesActionDelegate moviesActionDelegate;
 
-    public MoviesAdapter(MoviesActionDelegate moviesActionDelegate, List<Movie> movieList) {
+    public MoviesAdapter(MoviesActionDelegate moviesActionDelegate) {
         this.moviesActionDelegate = moviesActionDelegate;
-        this.movieList = movieList;
+        this.movieList = new ArrayList<>();
     }
 
     @Override
@@ -39,20 +41,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<ItemMoviesViewHolder> {
     @Override
     public void onBindViewHolder(ItemMoviesViewHolder holder, int position)
     {
-        holder.getIvMoviePoster().setImageResource(movieList.get(position).getPoster());
-        holder.getLblMovieTitle().setText(movieList.get(position).getTitle());
-        holder.getLblMovieCategory().setText(movieList.get(position).getCategories());
-        holder.getLblRating().setText(movieList.get(position).getRating());
-    }
-
-    @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView)
-    {
-        super.onAttachedToRecyclerView(recyclerView);
+        holder.setMovies(movieList.get(position));
     }
 
     @Override
     public int getItemCount() {
         return movieList.size();
+    }
+
+    public void setMovies(List<MoviesVO> moviesVOList) {
+        movieList = moviesVOList;
+        notifyDataSetChanged();
     }
 }

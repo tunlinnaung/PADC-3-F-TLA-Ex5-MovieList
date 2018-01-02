@@ -6,10 +6,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.tunlinaung.movielist.R;
+import xyz.tunlinaung.movielist.data.vo.MoviesVO;
 import xyz.tunlinaung.movielist.delegates.MoviesActionDelegate;
 import xyz.tunlinaung.movielist.model.Movie;
 
@@ -40,25 +43,19 @@ public class ItemMoviesViewHolder extends RecyclerView.ViewHolder
         this.moviesActionDelegate = moviesActionDelegate;
     }
 
-    public ImageView getIvMoviePoster() {
-        return ivMoviePoster;
-    }
-
-    public TextView getLblMovieTitle() {
-        return lblMovieTitle;
-    }
-
-    public TextView getLblMovieCategory() {
-        return lblMovieCategory;
-    }
-
-    public TextView getLblRating() {
-        return lblRating;
-    }
-
-    @OnClick(R.id.btn_overview)
-    public void onTapMovieOverviewButton(View itemView)
+    @OnClick(R.id.cv_movies_list)
+    public void onTapMovieItem(View itemView)
     {
-        moviesActionDelegate.onTapMovieOverviewButton();
+        moviesActionDelegate.onTapMovieItem();
+    }
+
+    public void setMovies(MoviesVO moviesVO) {
+        this.lblMovieTitle.setText(moviesVO.getTitle());
+//        this.lblMovieCategory.setText(moviesVO.getGenreIds());
+        this.lblRating.setText(String.valueOf(moviesVO.getVoteAverage()));
+
+        Glide.with(ivMoviePoster.getContext())
+                .load(moviesVO.getPosterPath())
+                .into(ivMoviePoster);
     }
 }
